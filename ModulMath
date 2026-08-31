@@ -1,20 +1,20 @@
-x = int (input("angka: "))
+#x = int (input("angka: "))
 
-if x % 2 == 0:
-    print(f"{x} adalah bilangan GENAP.")
-else:
-    print(f"{x} adalah bilangan GANJIL.")
+#if x % 2 == 0:
+    #print(f"{x} adalah bilangan GENAP.")
+#else:
+#print(f"{x} adalah bilangan GANJIL.")
 
-while True:
-    x = int (input("angka: "))
-    if x % 2 == 0:
-        print(f"{x} adalah bilangan GENAP.")
-    else:
-        print(f"{x} adalah bilangan GANJIL.")
+#while True:
+    #x = int (input("angka: "))
+    #if x % 2 == 0:
+        #print(f"{x} adalah bilangan GENAP.")
+    #else:
+        #print(f"{x} adalah bilangan GANJIL.")
         
-    push = input("tekan 'x' untuk keluar atau tekan tombol lain untuk melanjutkan")
-    if push == "x" :
-        break
+    #push = input("tekan 'x' untuk keluar atau tekan tombol lain untuk melanjutkan")
+    #if push == "x" :
+        #break
 
 
 
