@@ -37,6 +37,7 @@ def kelilingpersegi(f):
         if pilihan == 'stop':
              print("program selesai.")
              break
+            
     
     
 print("selesai")
