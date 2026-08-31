@@ -1,8 +1,0 @@
-import bilanganganjilgenap
-bilanganganjilgenap.ganjil_genap(print("Berapa Angkamu"))
-
-import bilanganganjilgenap
-bilanganganjilgenap.pembagian(print("Berapa Angkamu"))
-
-import bilanganganjilgenap
-bilanganganjilgenap.perkalian(print("Berapa Angkamu"))
