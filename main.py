@@ -2,6 +2,7 @@ while True:
     import ModulMath
     import ModulBangunDatar
 
+    print(Identitas.Identitas(print(login)))
     print("Menu Modul")
     print("1.Ganjil Genap\n2.Pembagian\n3.Perkalian\n4.Luas Persegi\n5.Luas Segitiga\n6.Keliling Persegi")
     print("")
