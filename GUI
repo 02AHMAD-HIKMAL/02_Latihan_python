@@ -1,0 +1,211 @@
+import tkinter as tk
+from tkinter import messagebox
+
+from database import login, buat_akun
+from Modulbangundatar import luaspersegi, luassegitiga, kelilingpersegi
+from Modulmath import ganjil_genap, pembagian, perkalian
+
+
+# =====================================
+# WINDOW UTAMA
+# =====================================
+
+root = tk.Tk()
+root.title("Aplikasi Matematika")
+root.geometry("500x500")
+root.resizable(False, False)
+
+
+# =====================================
+# FUNGSI MEMBERSIHKAN WINDOW
+# =====================================
+
+def clear_window():
+    for widget in root.winfo_children():
+        widget.destroy()
+
+
+# =====================================
+# HALAMAN LOGIN
+# =====================================
+
+def halaman_login():
+    clear_window()
+
+    tk.Label(
+        root,
+        text="LOGIN",
+        font=("Arial", 24, "bold")
+    ).pack(pady=30)
+
+    tk.Label(
+        root,
+        text="Username"
+    ).pack()
+
+    entry_username = tk.Entry(root, width=30)
+    entry_username.pack(pady=5)
+
+    tk.Label(
+        root,
+        text="Password"
+    ).pack()
+
+    entry_password = tk.Entry(
+        root,
+        width=30,
+        show="*"
+    )
+    entry_password.pack(pady=5)
+
+    def proses_login():
+        username = entry_username.get()
+        password = entry_password.get()
+
+        if username == "" or password == "":
+            messagebox.showwarning(
+                "Peringatan",
+                "Username dan password harus diisi!"
+            )
+            return
+
+        if login(username, password):
+            messagebox.showinfo(
+                "Login",
+                "Login berhasil!\nSelamat datang, " + username
+            )
+            halaman_menu()
+        else:
+            messagebox.showerror(
+                "Login",
+                "Username atau password salah!"
+            )
+
+    tk.Button(
+        root,
+        text="LOGIN",
+        width=25,
+        command=proses_login
+    ).pack(pady=15)
+
+    tk.Button(
+        root,
+        text="BUAT AKUN",
+        width=25,
+        command=halaman_buat_akun
+    ).pack(pady=5)
+
+    tk.Button(
+        root,
+        text="KELUAR",
+        width=25,
+        command=root.destroy
+    ).pack(pady=5)
+
+
+# =====================================
+# HALAMAN BUAT AKUN
+# =====================================
+
+def halaman_buat_akun():
+    clear_window()
+
+    tk.Label(
+        root,
+        text="BUAT AKUN",
+        font=("Arial", 24, "bold")
+    ).pack(pady=30)
+
+    tk.Label(
+        root,
+        text="Username Baru"
+    ).pack()
+
+    entry_username = tk.Entry(root, width=30)
+    entry_username.pack(pady=5)
+
+    tk.Label(
+        root,
+        text="Password Baru"
+    ).pack()
+
+    entry_password = tk.Entry(
+        root,
+        width=30,
+        show="*"
+    )
+    entry_password.pack(pady=5)
+
+    def proses_buat_akun():
+        username = entry_username.get()
+        password = entry_password.get()
+
+        if username == "" or password == "":
+            messagebox.showwarning(
+                "Peringatan",
+                "Username dan password harus diisi!"
+            )
+            return
+
+        if buat_akun(username, password):
+            messagebox.showinfo(
+                "Akun",
+                "Akun berhasil dibuat!"
+            )
+            halaman_login()
+        else:
+            messagebox.showerror(
+                "Akun",
+                "Username sudah digunakan!"
+            )
+
+    tk.Button(
+        root,
+        text="BUAT AKUN",
+        width=25,
+        command=proses_buat_akun
+    ).pack(pady=15)
+
+    tk.Button(
+        root,
+        text="KEMBALI",
+        width=25,
+        command=halaman_login
+    ).pack()
+
+
+# =====================================
+# MENU UTAMA
+# =====================================
+
+def halaman_menu():
+    clear_window()
+
+    tk.Label(
+        root,
+        text="MENU UTAMA",
+        font=("Arial", 24, "bold")
+    ).pack(pady=35)
+
+    tk.Button(
+        root,
+        text="BANGUN DATAR",
+        width=30,
+        height=2,
+        command=menu_bangun_datar
+    ).pack(pady=10)
+
+    tk.Button(
+        root,
+        text="MATH",
+        width=30,
+        height=2,
+        command=menu_bangun_ruang
+    ).pack(pady=10)
+
+    tk.Button(
+        root,
+        text="LOGOUT",
+        width=30,
+        command=halaman_login
+    ).pack(pady=20)
